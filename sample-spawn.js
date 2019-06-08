@@ -1,6 +1,8 @@
 const { spawn } = require('child_process')
-const result = spawn('git branch');
+const result = spawn('git', ['branch']);
 
-result.stdout.on('git branch', (result) => {
-    console.log (`stdout: ${result}`);
-});
+result.stdout.on('data', (stdout) => {
+	console.log(`${stdout}`)
+})
+
+//`${}`es un template para traducir a string 
